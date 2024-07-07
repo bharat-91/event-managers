@@ -1,0 +1,45 @@
+<div class="dashboard">
+  <div class="container">
+    <h1>Event Dashboard <i class="fas fa-calendar-alt"></i></h1>
+    <form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="search-bar">
+            <input type="text" formControlName="title" placeholder="Search by Event Title" class="form-control" >
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="select-group">
+            <select formControlName="eventType" class="form-control">
+              <option value="">All Event Types</option>
+              <option *ngFor="let type of eventTypes" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="select-group">
+            <select formControlName="venue" class="form-control">
+              <option value="">All Venues</option>
+              <option *ngFor="let v of venues" [value]="v">{{ v }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="events mt-3">
+      <div *ngFor="let event of filteredEvents" class="event">
+        <img *ngIf="event.eventPicture" [src]="event.eventPicture" alt="Event Image" class="event-image">
+        <div class="event-details">
+          <h2>{{ event.title }}</h2>
+          <p><strong>Date:</strong> {{ event.eventDate}} <i class="fas fa-calendar"></i></p>
+          <p><strong>Venue:</strong> {{ event.venue }} <i class="fas fa-map-marker-alt"></i></p>
+          <p><strong>Remaining Tickets:</strong> {{ event.remainingTickets }} <i class="fas fa-ticket-alt"></i></p>
+          <p><strong>Price per Ticket:</strong> ${{ event.pricePerTicket }} <i class="fas fa-dollar-sign"></i></p>
+          <p><strong>Remaining Tickets:</strong> {{ event.remainingTickets }} <i class="fas fa-ticket-alt"></i></p>
+          <p><strong>Event Type:</strong> {{ event.eventType }} <i class="fas fa-map-marker-alt"></i></p>
+          <a [routerLink]="['/user/auth/event-info', event._id]" class="view-event-btn" (click)="viewDetails(event._id)">View Full Event <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Register for {{ data.eventName }}</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput placeholder="Username" formControlName="username">
+      <mat-error *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email">
+      <mat-error *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+      <mat-error *ngIf="registrationForm.get('phoneNumber')?.invalid && registrationForm.get('phoneNumber')?.touched">
+        Phone number is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Ticket Price" formControlName="ticketPrice" value="{{data.ticketPrice}}">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button type="button" mat-dialog-close class="btn btn-outline-danger me-2">Cancel</button>
+    <button mat-button type="submit" [disabled]="registrationForm.invalid" class="btn btn-outline-success">Register</button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,10 @@
+{
+    "DbURL": "mongodb+srv://nandanvarbharat:xabqyb-fobdat-rivgU2@cluster0.08d9ahs.mongodb.net/LocalDatabase?retryWrites=true&w=majority&appName=Cluster0",
+    "portNumber": 3333,
+    "SecretKey": "LocalSecretKey",
+    "cloudName":"dkbl81mcm",
+    "API_KEY": "434711329537586",
+    "API_SECRET":"Wo8I7XPPCnOxcg3YetBD958VKRg",
+    "ADMIN_EMAIL": "bharat@gmail.com",
+    "ADMIN_PASSWORD":"12345"
+}

@@ -1,0 +1,33 @@
+<div class="single-event" *ngIf="event">
+    <div class="event-details">
+      <h1>{{ event.title }}</h1>
+      <div class="event-info">
+        <div class="info-item">
+          <i class="fas fa-calendar-alt"></i>
+          <span>{{ event.eventDate | date:'mediumDate' }}</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{ event.venue }}</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-ticket-alt"></i>
+          <span>Remaining Tickets: {{ event.remainingTickets }}</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-dollar-sign"></i>
+          <span>Price per Ticket: {{ event.pricePerTicket | currency:'INR' }}</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-users"></i>
+          <span>Capacity: {{ event.totalCapacity }}</span>
+        </div>
+      </div>
+      <div class="event-image">
+        <img *ngIf="event.eventPicture" [src]="event.eventPicture" alt="Event Image">
+        <span *ngIf="!event.eventPicture">No image available for this event</span>
+      </div>
+      <button mat-raised-button color="primary" (click)="openRegistrationModal()" class="btn btn-outline-success mt-3">Register for Event</button>
+    </div>
+  </div>
+  
